@@ -1,0 +1,141 @@
+<div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+
+
+<div class="center col-md-6"  style="width: 100%;">
+  <form #benForm='ngForm' (ngSubmit)='postBeneficiary(benForm)'>
+
+    <div class="px-2 py-3 col-md"></div>
+
+   
+    <div class=" bg- mb" style="width: 100%;">
+    
+      <div class="card-header text- bg-"><h4>Beneficiary</h4></div>
+      <div class="card-body">
+      
+    
+        <div class="form-group row col-md-7">
+
+          <!-- <label for="fn">Id</label> -->
+  
+          <input type="hidden" class="form-control" placeholder="Id" #beneficiaryId='ngModel'
+           ngModel id="beneficiaryId" name="beneficiaryId" required>
+           <div *ngIf='beneficiaryId.invalid && beneficiaryId.touched' class="text-danger ">
+  
+            Required
+          </div>
+  
+        
+      </div>
+
+
+        <div class="form-group row col-md-7">
+
+        <label for="fn">Fisrtname</label>
+
+        <input type="text" class="form-control" placeholder="" #firstName='ngModel'
+         ngModel id="firstName" pattern="[a-zA-Z ]*" name="firstName"  required>
+         <div *ngIf='firstName.invalid && firstName.touched' class="text-danger ">
+          <div *ngIf='firstName.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <div *ngIf='firstName.errors.pattern'  class="text-danger ">
+            Please Enter Alphabets
+          </div>
+        </div>
+
+      
+    </div>
+
+    
+<div class="form-group row col-md-7">
+      
+        <label for="lastname">Last Name</label>
+
+        <input type="text" class="form-control" placeholder=""
+        #lastName='ngModel' ngModel id="lastName" pattern="[a-zA-Z ]*" name="lastName" required>
+        <div *ngIf='lastName.invalid && lastName.touched' class="text-danger ">
+          <div *ngIf='lastName.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <div *ngIf='lastName.errors.pattern'  class="text-danger ">
+            Please Enter Alphabets
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="form-group row col-md-7">
+
+        <label for="acc">Account Number</label>
+
+        <input type="text" class="form-control" id="accountNo"
+        required name="accountNo" #accountNo='ngModel' ngModel pattern="^[0-9]{11,11}$" >
+        <div *ngIf='accountNo.invalid && accountNo.touched' class="text-danger ">
+          <div *ngIf='accountNo.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <div *ngIf='accountNo.errors.pattern'  class="text-danger ">
+            Please enter valid 11 digit account number
+             count number 
+          </div>
+        </div>
+      </div>
+   
+
+      
+      <div class="form-group row col-md-7">
+
+        <label for="email">Email</label>
+
+        <input type="text" class="form-control" placeholder=""
+        #email='ngModel' ngModel id="email" name="email" email required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}">
+        <div *ngIf='email.invalid && email.touched' class="text-danger ">
+
+          Required *
+        </div>
+      </div>
+    
+
+      
+      <div class="form-group row col-md-7">
+
+        <label for="phone">Phone Number</label>
+
+        <input type="text" class="form-control" id="phoneNo"
+        required name="phoneNo" #phoneNo='ngModel' ngModel
+        pattern="(0/91)?[6-9][0-9]{9}" maxlength="10" minlength="10" size="10">
+        
+        <div *ngIf='phoneNo.invalid && phoneNo.touched' class="text-danger ">
+          <div *ngIf='phoneNo.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <div *ngIf='phoneNo.errors.pattern'  class="text-danger ">
+            Please enter valid 10 digit phone number 
+          </div>
+        </div>
+      
+    </div>
+
+
+<br>
+
+<div class=" row ">
+
+    <button type="submit" style="margin:5px;" class="btn btn-success">Submit </button>
+  
+
+    
+
+    <button type="reset" style="margin:5px;" class="btn btn-primary">Reset</button>
+  
+
+    
+
+    <input type="button" value=" Back" onclick="history.back()">
+
+</div>
+</div>
+    </div>
+  </form>
+</div>

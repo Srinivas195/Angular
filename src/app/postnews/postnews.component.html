@@ -1,0 +1,100 @@
+<div class="" *ngIf='message'>{{ message }}</div>
+
+<div class="center col-md-6" style="width: 100%;">
+  <form #atmForm='ngForm' (ngSubmit)='postnews(atmForm)'>
+   
+ <div class="px-2 py-3 col-md"></div>
+<div class=" mb-3" style="width: 100%;">
+  <div class="card-header "><h3>Post News</h3></div>
+  <div class="card-body">
+
+    <!-- <div class="form-group row col-md-7">
+
+      <label for="ab">Id</label>
+
+      <input type="text" name="id" id="id"  class="form-control" #id='ngModel' ngModel 
+      required placeholder="id" >
+      <div *ngIf='id.invalid && id.touched' class="text-danger ">
+        <div *ngIf='id.errors.required'  class="text-danger ">
+        <small>Required *
+        </small>
+        </div>
+       
+      </div>
+</div> -->
+ 
+
+
+
+
+<div class="form-group row col-md-7">
+
+        
+
+
+        <label for="amt">News Headline</label>
+
+        <input type="text" name="headLine"  id="headLine" class="form-control" #headLine='ngModel' ngModel required
+        placeholder="" >
+        
+        <div *ngIf='headLine.invalid && headLine.touched' class="text-danger ">
+          
+          <div *ngIf='headLine.errors.required'  class="text-danger ">
+           <small>Required *</small> 
+          </div>
+         
+        </div>
+
+
+       
+</div>
+
+<div class="form-group row col-md-7">
+
+        
+
+
+  <label for="amt">Details</label>
+
+  <!-- <input type="text" name="details"  id="details" class="form-control" #details='ngModel' ngModel required
+  placeholder="" > -->
+  <textarea id="details" name="details" rows="4" cols="50"  maxlength="256"
+      #details='ngModel' ngModel 
+      required>
+      </textarea>
+  <div *ngIf='details.invalid && details.touched' class="text-danger ">
+    
+    <div *ngIf='details.errors.required'  class="text-danger ">
+     <small>Required *</small> 
+    </div>
+   
+  </div>
+
+
+ 
+</div>
+   
+
+    
+
+
+
+
+
+
+
+    
+
+     
+<br>
+
+
+    <button type="submit" class="btn btn-primary" >Submit</button>
+
+  </div>
+</div>
+
+  </form>
+</div>
+
+

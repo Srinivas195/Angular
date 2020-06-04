@@ -1,0 +1,127 @@
+<!-- <ul>
+  <li * ngFor='let '></li>
+</ul> -->
+<!-- <div class="px-3 py-3 col-md-2 offset- mt-" > -->
+
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="px-3 py-3 col-md">
+
+
+</div> 
+
+<!-- <div class="px-10 py-3 col-md-3">
+  <h5><label for="loantype">Search</label></h5>
+  <input type="text" class="form-control"  placeholder="Search Here...." [(ngModel)]="searchValue">
+<h5 class="col-md-5"></h5>
+<div class="px-5 py-2"></div>
+<div class="row">
+  <h5 class="col-md-4">Search By</h5>
+  <div class="form-group">
+    <select class="form-control" name="" id="" [(ngModel)]="searchBy" (change)="getSortedData()">
+      <option value="firstName">Name</option>
+      <option value="emailId">Email</option>
+      <option value="branch">Branch</option>
+    </select>
+  </div>
+</div>
+</div> -->
+<div class="col-styling" >
+  <label class="sr-only" for="inlineFormInputGroup">search</label>
+  <div class="col-styling" >
+    <label class="sr-only" for="inlineFormInputGroup">search</label>
+    <div class="input-group mb-4">
+      <div class="input-group-prepend search">
+        <div class="input-group-text">search</div>
+      </div>
+      <input type="text" class="form-control col-md-2" id="inlineFormInputGroup" [(ngModel)]="searchValue" > 
+    </div>
+  </div>
+</div>
+<div class="sort">
+  <label class="sr-only" for="inlineFormInputGroup">Sort by</label>
+  <div class="input-group mb-4">
+    <div class="input-group-prepend">
+      <div class="input-group-text">sort by</div>
+    </div>
+<!-- <div class="row">
+  <h5 class="col-md-2">Sort by</h5>
+  <div class="form-group"> -->
+    <select class="form-control col-md-2" name="" id="" [(ngModel)]="fieldName" (change)="getSortedData()">
+      <option value="emailId">Email</option>
+      <option value="phoneNo">Phone</option>
+      <option value="accountNo">Account Number</option>
+    </select>
+  </div>
+</div>
+
+
+
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Sl NO</th>
+      <!-- <th>Customer Id</th> -->
+      <th>Full Name</th>
+      <!-- <th>Last Name</th> -->
+      <th>Gender</th>
+      <!-- <th>Dob</th> -->
+      <th>Email</th>
+      <!-- <th>Address</th> -->
+      <th>Branch</th>
+      <th>Aadhar</th>
+      <th>Phone</th>
+      <th>Account Number</th>
+      <!-- <th>Opening Balance</th> -->
+      <!-- <th>Pin</th> -->
+      <!-- <th>Username</th> -->
+      <!-- <th>Password</th> -->
+      <th>View</th>
+      <th>Actions</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of data | loan:searchValue:'firstName' index as i">
+      <td>{{i+1}}</td>
+
+      <!-- <td>{{customer.customer_id}}</td> -->
+      <td>{{customer.firstName}} {{customer.lastName}}</td>
+      <!-- <td>{{customer.lastname}}</td> -->
+      <td>{{customer.gender}}</td>
+      <!-- <td>{{customer.dob}}</td> -->
+      <td>{{customer.emailId}}</td>
+      <!-- <td>{{customer.address}}</td> -->
+      <td>{{customer.branch}}</td>
+      <td>{{customer.aadharNo}}</td>
+      <td>{{customer.phoneNo}}</td>
+      <td>{{customer.accountNo}}</td>
+      <!-- <td>{{customer.openingBalance}}</td> -->
+      <!-- <td>{{customer.pin}}</td> -->
+      <!-- <td>{{customer.username}}</td> -->
+      <!-- <td>{{customer.password}}</td> -->
+<td>          <button type="button" class="btn btn-success" (click)='viewCus(customer)'>View</button>
+</td>
+
+      
+        <td>
+
+          <button type="button" class="btn btn-primary" (click)='updateCus(customer)'>Update</button>
+          <!-- <button type="button" class="btn btn-success"><</button> -->
+        <!-- <button type="button" class="btn btn-danger" (click)='deleteCus(customer)'>Delete</button> -->
+        </td>
+
+
+    </tr>
+
+  </tbody>
+
+</table>
+<mat-paginator [length]="totalItems"
+              [pageSize]="itemsPerPage"
+              [pageSizeOptions]="[2, 5, 10, 25, 100]"
+              (page) ="getNextPageItems($event)">
+</mat-paginator>
+<!-- </div> -->

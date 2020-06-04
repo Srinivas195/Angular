@@ -1,0 +1,76 @@
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+
+<div class="center col-md-7"  style="width: 100%;">
+  <form #loginForm='ngForm' (ngSubmit)='login(loginForm)'>
+
+    <div class="px-3 py-3 col-md"></div>
+
+ 
+    <div class=" bg- mb-3" style="width: 100%;">
+    
+      <div class="card-header text- bg-"><h4>Login</h4></div>
+      <div class="card-body">
+
+        
+      <div class="form-group row col-md-9">
+        <label for="email"><i class="fa fa-user icon"> Email</i>
+        </label>
+
+        <input type="email" class="form-control" 
+        name="emailId" id="emailId" #emailId='ngModel' required ngModel email
+         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" placeholder="Email" >
+         <div *ngIf='emailId.invalid && emailId.touched' class="text-danger ">
+          <div *ngIf='emailId.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <div *ngIf='emailId.errors.pattern'  class="text-danger ">
+            Please Enter Valid Email 
+
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row col-md-9">
+        <label> <i class="fa fa-key icon"> Password</i></label>
+        <input type="password" class="form-control" id="password" placeholder="  Password"
+        name="password" #password='ngModel' ngModel required>
+        <!-- pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,15}$"  -->
+
+       
+        <div *ngIf='password.invalid && password.touched' class="text-danger ">
+          <div *ngIf='password.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <!-- <div *ngIf='password.errors.pattern'  class="text-danger ">
+            Min 8 char and Must have  atleast one uppercase,lowercase,numeric,special char
+          </div> -->
+        </div>
+      </div>
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+      
+      <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+    </div>
+    </form>
+    <div class="dropdown-divider "></div>
+    <a class="dropdown-item" href="register">New around here? Sign up</a>
+  </div>
+
+  
+  
+ 
+   

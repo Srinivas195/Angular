@@ -1,0 +1,203 @@
+<nav class="navbar navbar-expand-lg  text-dark">
+  <div class="logo-image">
+    <img src="https://image.flaticon.com/icons/png/512/68/68082.png" class="img-fluid">
+</div>  
+<!-- https://image.flaticon.com/icons/svg/25/25473.svg -->
+<a class="navbar-brand" >Online Banking</a>
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      
+      <a class="nav-item nav-link active text-dark"  *ngIf='!projectService.isLogged()' title="Log in" routerLink="login">Log In <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active text-dark" *ngIf='!projectService.isLogged()' routerLink="register">Register </a>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" *ngIf='projectService.isUser() || projectService.isAdmin() ' href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Atm
+        </a>
+        <div class="dropdown-menu  " aria-labelledby="navbarDropdown">
+         
+          <a class="dropdown-item stripped hover" *ngIf='projectService.isUser()' routerLink="atm">Transfer Money </a>
+          
+          <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item stripped hover" *ngIf='projectService.isUser()' routerLink="trans">List of Transactions</a>
+        
+        <a class="dropdown-item stripped hover" *ngIf='projectService.isAdmin()' routerLink="fulltrans">List of Transactions</a>
+
+
+      </div>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" *ngIf='projectService.isUser()'   id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Funds
+        </a>
+        <div class="dropdown-menu  " aria-labelledby="navbarDropdown">
+         
+          <a class="dropdown-item stripped hover" *ngIf='projectService.isUser()' routerLink="tran">Transfer Fund</a>
+          
+          <div class="dropdown-divider"></div>
+
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        
+        
+        <a class="nav-link dropdown-toggle text-dark" *ngIf='projectService.isAdmin()'  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Customer
+       
+        </a>
+        <div class="dropdown-menu  " aria-labelledby="navbarDropdown">
+          <a class="dropdown-item stripped hover" *ngIf='projectService.isAdmin()' routerLink="customer">Add Customer Details</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item stripped hover" *ngIf='projectService.isAdmin()' routerLink="list"> List of Customer Details</a>
+        
+
+          <div class="dropdown-divider stripped hover"></div>
+
+          <a class="dropdown-item stripped hover"  *ngIf='projectService.isAdmin()' routerLink="viewcus">View of Customers</a>
+
+         
+
+
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" *ngIf='projectService.isUser()' href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Beneficiary
+        </a>
+        <div class="dropdown-menu  " aria-labelledby="navbarDropdown">
+         
+          <a class="dropdown-item stripped hover" *ngIf='projectService.isUser()' routerLink="ben">Add Beneficiary Customer</a>
+          
+          <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item stripped hover" *ngIf='projectService.isUser()' routerLink="listben">List of Beneficiary Accounts</a>
+        </div>
+      </li>
+     
+
+      
+      <!-- <li class="nav-item ">
+        <a class="nav-link dropdown-toggle text-dark" *ngIf='projectService.isUser() || projectService.isAdmin()'  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Request
+        </a>
+      </li>
+         
+          <a class="dropdown-item stripped hover" *ngIf='projectService.isUser()' routerLink="sendrequest">Add Request</a>
+          
+          <li class="nav-item ">
+
+        <a class="dropdown-item stripped hover" *ngIf='projectService.isAdmin()' routerLink="getrequest">List of Request</a>
+       
+        <a class="dropdown-item stripped hover" *ngIf='projectService.isUser()' routerLink="userreq">List of Request</a>
+
+      </li> -->
+     
+
+
+
+<!-- Requests -->
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" *ngIf='projectService.isAdmin() || projectService.isUser()' href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Requests
+        </a>
+        <div class="dropdown-menu  " aria-labelledby="navbarDropdown">
+
+          <a class="dropdown-item stripped hover" *ngIf='projectService.isUser()' routerLink="sendrequest">Add Requests</a>
+
+
+          <a class="dropdown-item stripped hover" *ngIf='projectService.isAdmin()' routerLink="getrequest">View Requests</a>
+          
+          <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item stripped hover" *ngIf='projectService.isUser()' routerLink="userreq">Requests</a>
+
+      </div>
+      </li>
+<!-- Requests -->
+
+<!-- post -->
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle text-dark" *ngIf='projectService.isAdmin() || projectService.isUser()' href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Posts
+  </a>
+  <div class="dropdown-menu  " aria-labelledby="navbarDropdown">
+
+    <a class="dropdown-item stripped hover" *ngIf='projectService.isAdmin()' routerLink="postnews">Post news </a>
+
+
+    <a class="dropdown-item stripped hover" *ngIf='projectService.isUser() ' routerLink="getnews">View news</a>
+    
+
+
+</div>
+</li>
+
+<ul class="navbar-nav ml-auto">
+  <li>
+    <a class="nav-item nav-link active text-dark " *ngIf='projectService.isUser()' routerLink="credit" >Credit </a>
+
+  </li>
+
+</ul>
+
+
+
+<ul class="navbar-nav ml-auto ">
+  <li>
+    <a class="nav-item nav-link active text-dark "  *ngIf='projectService.isUser()' routerLink="viewcus" > Profile </a>
+
+  </li>
+
+</ul>
+
+
+      <!-- logout -->
+
+      <ul class="navbar-nav ml-auto ">
+        <li>
+          <a class="nav-item nav-link active text-dark "  *ngIf='projectService.isLogged()' routerLink="login" (click)='projectService.logout()'> Logout </a>
+
+        </li>
+
+      </ul>
+
+
+      
+
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

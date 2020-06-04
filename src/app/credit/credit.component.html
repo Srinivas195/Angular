@@ -1,0 +1,78 @@
+<div class="" *ngIf='message'>{{ message }}</div>
+
+<div class="center col-md-6" style="width: 100%;">
+  <form #atmForm='ngForm' (ngSubmit)='postCredit(atmForm)'>
+   
+ <div class="px-2 py-3 col-md"></div>
+<div class=" mb-3" style="width: 100%;">
+  <div class="card-header "><h3>Credit</h3></div>
+  <div class="card-body">
+
+    <!-- <div class="form-group row col-md-7">
+
+      <label for="ab">Id</label>
+
+      <input type="text" name="id" id="id"  class="form-control" #id='ngModel' ngModel 
+      required placeholder="id" >
+      <div *ngIf='id.invalid && id.touched' class="text-danger ">
+        <div *ngIf='id.errors.required'  class="text-danger ">
+        <small>Required *
+        </small>
+        </div>
+       
+      </div>
+</div> -->
+ 
+
+
+
+
+<div class="form-group row col-md-7">
+
+        
+
+
+        <label for="amt">Amount</label>
+
+        <input type="number" name="amount"  id="amount" class="form-control" #amount='ngModel' ngModel required
+        placeholder="amount" 
+        pattern="([1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9]|[1-8][0-9]{4}|9[0-8][0-9]{3}|99[0-8][0-9]{2}|999[0-8][0-9]|9999[0-9]|100000)">
+        
+        <div *ngIf='amount.invalid && amount.touched' class="text-danger ">
+          <div *ngIf='amount.errors.required'  class="text-danger ">
+           <small>Required *</small> 
+          </div>
+          <div *ngIf='amount.errors.pattern'  class="text-danger ">
+            
+             <small>Range 100-1,00,000 </small>
+          </div>
+        </div>
+
+
+       
+</div>
+   
+
+    
+
+
+
+
+
+
+
+    
+
+     
+<br>
+
+
+    <button type="submit" class="btn btn-primary" >Submit</button>
+
+  </div>
+</div>
+
+  </form>
+</div>
+
+

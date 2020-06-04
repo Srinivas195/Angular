@@ -1,0 +1,104 @@
+
+
+<div class="center col-md-6 " style="width: 100%;">
+  <form #transferForm='ngForm' (ngSubmit) ='postTransferFund(transferForm)'>
+   
+    <div class="px-2 py-3 col-md"></div>
+
+    <div class="bg- mb" style="width: 100%;">
+    
+      <div class="card-header text- bg-"><h4>Transfer</h4></div>
+      <div class="card-body">
+
+        <div class="form-group row col-md-7">
+
+        <label for="to">Receiver Name</label>
+
+        <input type="text" class="form-control" placeholder=""
+        #recieverName='ngModel' ngModel id="recieverName" name="recieverName" pattern="[a-zA-Z ]*" required>
+
+        <div *ngIf='recieverName.invalid && recieverName.touched' class="text-danger ">
+          <div *ngIf='recieverName.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <div *ngIf='recieverName.errors.pattern'  class="text-danger ">
+            Please Enter Alphabets
+          </div>
+        </div>
+      </div>
+    
+
+    
+<div class="form-group row col-md-7">
+
+        <label for="acc">Account Number</label>
+
+        <input type="text" class="form-control" 
+        id="accNo" required name="accNo" #accNo='ngModel' ngModel pattern="^[0-9]{11,11}$" >
+        <div *ngIf='accNo.invalid && accNo.touched' class="text-danger ">
+          <div *ngIf='accNo.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <div *ngIf='accNo.errors.pattern'  class="text-danger ">
+            Please enter valid 11 digit account number 
+          </div>
+        </div>
+
+      </div>
+    
+
+    
+    <div class="form-group row col-md-7">
+
+        <label for="amt">Amount</label>
+
+        <input type="text" class="form-control" placeholder=""
+        #amount='ngModel' ngModel id="amount" name="amount" required pattern="([1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9]|[1-8][0-9]{4}|9[0-8][0-9]{3}|99[0-8][0-9]{2}|999[0-8][0-9]|9999[0-9]|100000)">
+        <div *ngIf='amount.invalid && amount.touched' class="text-danger ">
+          <div *ngIf='amount.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <div *ngIf='amount.errors.pattern'  class="text-danger ">
+            Range 100-1,00,000
+          </div>
+        </div>
+      </div>
+   
+
+      
+  
+
+      
+      <div class="form-group row col-md-7">
+
+        <label for="pwd">pin</label>
+
+        <input type="password" class="form-control" id="pin"
+        required name="pin" #pin='ngModel' ngModel 
+        pattern="([1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9])" 
+        minlength="4" maxlength="4" size="4">
+        <div *ngIf='pin.invalid && pin.touched' class="text-danger ">
+          <div *ngIf='pin.errors.required'  class="text-danger ">
+            Required *
+          </div>
+          <div *ngIf='pin.errors.pattern'  class="text-danger ">
+            Please enter valid 4 digit pin 
+          </div>
+          
+
+        </div>
+
+
+        
+      </div>
+    
+
+
+    <br>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+      </div>
+    </div>
+  </form>
+</div>

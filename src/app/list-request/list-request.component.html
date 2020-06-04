@@ -1,0 +1,81 @@
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="px-3 py-3 col-md">
+
+
+</div> 
+
+
+
+<div class="col-styling" >
+  <label class="sr-only" for="inlineFormInputGroup">search</label>
+  <div class="input-group mb-4">
+    <div class="input-group-prepend search">
+      <div class="input-group-text">search</div>
+    </div>
+    <input type="text" class="form-control col-md-2" id="inlineFormInputGroup" [(ngModel)]="searchValue" > 
+    
+  </div>
+</div>
+
+<div class="sort">
+  <label class="sr-only" for="inlineFormInputGroup">Sort by</label>
+  <div class="input-group mb-4">
+    <div class="input-group-prepend">
+      <div class="input-group-text">sort by</div>
+    </div>
+<!-- <div class="row">
+  <h5 class="col-md-2">Sort by</h5>
+  <div class="form-group"> -->
+    <select class="form-control col-md-2" name="" id="" [(ngModel)]="fieldName" (change)="getSortedData()">
+      <option value="request">Request</option>
+      <option value="phoneNumber">Phone Number</option>
+      <!-- <option value="accountNo">Account Number</option> -->
+    </select>
+  </div>
+</div>
+
+
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+          <th scope="col">Request Type</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Leaves</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+
+          <tr *ngFor="let users of data | loan:searchValue:'request'">
+     	      <td>{{users.request}}</td>
+            <td>{{users.address}}</td>
+            <td>{{users.phoneNumber}}</td>
+            <td>{{users.leaves}}</td>
+            <td>{{users.status}}</td>
+           
+            <td>
+              <div class="btn-group mb-4" role="group" aria-label="Button group example">
+                <button class="btn btn-success" type="submit" style="margin:2px;"
+                  (click)='selectApprove(users)'>Approve</button>
+                <button class="btn btn-danger" type="submit" style="margin:2px;"
+                  (click)='selectReject(users)'>Reject</button>
+                </div>
+                </td>
+           
+            </tr>
+
+</tbody>
+</table>
+
+
+<mat-paginator [length]="totalItems"
+              [pageSize]="itemsPerPage"
+              [pageSizeOptions]="[3, 6, 10, 25, 100]"
+              (page) ="getNextPageItems($event)">
+</mat-paginator>
+
+

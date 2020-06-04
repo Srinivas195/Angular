@@ -1,0 +1,37 @@
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="px-3 py-3 col-md">
+
+
+</div> 
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+          <th scope="col">Request Type</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Leaves</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+
+          <tr *ngFor='let users of req'>
+     	      <td>{{users.request}}</td>
+            <td>{{users.address}}</td>
+            <td>{{users.phoneNumber}}</td>
+            <td>{{users.leaves}}</td>
+            <td>{{users.status}}</td>
+           
+            
+    </tr>
+
+  </tbody>
+              
+               
+
+
+
+
+
+

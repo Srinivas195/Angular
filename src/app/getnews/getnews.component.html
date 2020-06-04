@@ -1,0 +1,29 @@
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="px-3 py-3 col-md">
+
+
+</div> 
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+          <th scope="col">Headline</th>
+          <th scope="col">Details</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+      
+
+          <tr *ngFor='let users of data'>
+     	      <td>{{users.headLine}}</td>
+            <td>{{users.details}}</td>
+           
+          </tr>
+      </tbody>
+          
+</table>
+
+
+
+
+

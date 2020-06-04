@@ -1,0 +1,112 @@
+<div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+
+
+<div class="center col-md-6"  style="width: 100%;">
+  <form #benForm='ngForm' (ngSubmit)='updatebene(benForm)'>
+
+    <div class="px-2 py-3 col-md"></div>
+
+   
+    <div class=" bg- mb" style="width: 100%;">
+    
+      <div class="card-header text- bg-"><h4>Beneficiary</h4></div>
+      <div class="card-body">
+      
+    
+        <div class="form-group row col-md-7">
+
+          <!-- <label for="fn">Id</label> -->
+  
+          <input type="hidden" class="form-control" placeholder="" #benId='ngModel'
+          [(ngModel)]='benToUpdate.benId' id="benId" name="benId" required>
+           <div *ngIf='ben_id.invalid && ben_id.touched' class="text-danger ">
+  
+            Required
+          </div>
+  
+        
+      </div>
+
+
+        <div class="form-group row col-md-7">
+
+        <label for="fn">firstname</label>
+
+        <input type="text" class="form-control" placeholder="Firstname" #firstname='ngModel'
+        [(ngModel)]='benToUpdate.firstname' id="firstname" name="firstname" required>
+         <div *ngIf='firstname.invalid && firstname.touched' class="text-danger ">
+
+          Required
+        </div>
+
+      
+    </div>
+
+    
+<div class="form-group row col-md-7">
+      
+        <label for="lastname">lastname</label>
+
+        <input type="text" class="form-control" placeholder="lastname"
+        #lastname='ngModel' [(ngModel)]='benToUpdate.lastname' id="lastname" name="lastname" required>
+
+        <div *ngIf='lastname.invalid && lastname.touched' class="text-danger ">
+
+          Required *
+        </div>
+      </div>
+    
+
+      <div class="form-group row col-md-7">
+
+        <label for="acc">account_no</label>
+
+        <input type="text" class="form-control" placeholder="account"
+        #account_no='ngModel' [(ngModel)]='benToUpdate.account_no' id="account_no" name="account_no" required pattern="^[0-9]{11,11}$">
+
+        <div *ngIf='account_no.invalid && account_no.touched' class="text-danger ">
+
+          Required *
+        </div>
+      </div>
+   
+
+      
+      <div class="form-group row col-md-7">
+
+        <label for="email">email_id</label>
+
+        <input type="text" class="form-control" placeholder="email"
+        #email_id='ngModel' [(ngModel)]='benToUpdate.email_id' id="email_id" name="email_id" email required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}">
+        <div *ngIf='email_id.invalid && email_id.touched' class="text-danger ">
+
+          Required *
+        </div>
+      </div>
+    
+
+      
+      <div class="form-group row col-md-7">
+
+        <label for="phone">phone_no</label>
+
+        <input type="text" class="form-control" placeholder="phone"
+        #phone_no='ngModel' [(ngModel)]='benToUpdate.phone_no' id="phone_no" name="phone_no" required
+        pattern="(0/91)?[6-9][0-9]{9}" maxlength="10" minlength="10" size="10">
+        <div *ngIf='phone_no.invalid && phone_no.touched' class="text-danger ">
+
+          Required *
+        </div>
+      
+    </div>
+
+
+<br>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+    </div>
+  </form>
+</div>

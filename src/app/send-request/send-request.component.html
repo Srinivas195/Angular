@@ -1,0 +1,121 @@
+<div class="alert alert-success" *ngIf='message'>{{ message }}</div>
+
+
+<div class="center col-md-6"  style="width: 100%;">
+  <form #reqForm='ngForm' (ngSubmit)='postRequest(reqForm)'>
+
+    <div class="px-2 py-3 col-md"></div>
+
+   
+    <div class=" bg- mb" style="width: 100%;">
+    
+      <div class="card-header text- bg-"><h4>Request</h4></div>
+      <div class="card-body">
+      
+    
+        <div class="form-group row col-md-7">
+
+          <!-- <label for="fn">Id</label> -->
+  
+          <input type="hidden" class="form-control" placeholder="Id" #requestId='ngModel'
+           ngModel id="requestId" name="requestId" required>
+           <div *ngIf='requestId.invalid && requestId.touched' class="text-danger ">
+  
+            Required
+          </div>
+  
+        
+      </div>
+
+
+
+
+    <div class="form-group row col-md-6">
+        <label for="branch">Request For</label>
+        <select id="request" name="request"   required #request='ngModel' ngModel  class="form-control">
+          
+
+          <!-- <option disabled selected>Select Branch</option> -->
+          <option >Adress</option>
+          <option>Phone Number</option>
+          <option >Check</option>
+          
+        
+        </select>
+        
+        <div *ngIf='request.invalid && request.touched' class="text-danger ">
+          <div *ngIf='request.errors.required'  class="text-danger ">
+            Required *
+          </div>
+         
+        </div>
+      </div>
+
+    
+<div class="form-group row col-md-7">
+      
+        <label for="lastname">Address</label>
+
+        <input type="text" class="form-control" placeholder=""
+        #address='ngModel' ngModel id="address" name="address" required>
+
+        <div *ngIf='address.invalid && address.touched' class="text-danger ">
+
+          Required *
+        </div>
+      </div>
+    
+
+      <div class="form-group row col-md-7">
+
+        <label for="acc">Phone Number</label>
+
+        <input type="text" class="form-control" placeholder=""
+        #phoneNumber='ngModel' ngModel id="phoneNumber" name="phoneNumber" required pattern="^[0-9]{11,11}$">
+
+        <div *ngIf='phoneNumber.invalid && phoneNumber.touched' class="text-danger ">
+
+          Required *
+        </div>
+      </div>
+   
+
+      
+      <div class="form-group row col-md-7">
+
+        <label for="email">Leaves</label>
+
+        <input type="text" class="form-control" placeholder=""
+        #leaves='ngModel' ngModel id="leaves" name="leaves" email required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}">
+        <div *ngIf='leaves.invalid && leaves.touched' class="text-danger ">
+
+          Required *
+        </div>
+      </div>
+    
+
+      
+      <div class="form-group row col-md-7">
+
+        <label valuefor="phone">Status</label>
+
+        <input type="hidden" class="form-control" placeholder=""
+        #status='ngModel'  id="status" name="status" required
+            [(ngModel)]='value' >
+        <div *ngIf='status.invalid && status.touched' class="text-danger ">
+
+          Required *
+        </div>
+      
+    </div>
+
+
+<br>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+    </div>
+  </form>
+</div>

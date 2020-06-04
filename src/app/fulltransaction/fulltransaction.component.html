@@ -1,0 +1,75 @@
+
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="px-3 py-3 col-md">
+
+
+</div> 
+
+<div class="col-styling" >
+  <label class="sr-only" for="inlineFormInputGroup">search</label>
+  <div class="col-styling" >
+    <label class="sr-only" for="inlineFormInputGroup">search</label>
+    <div class="input-group mb-4">
+      <div class="input-group-prepend search">
+        <div class="input-group-text">search</div>
+      </div>
+      <input type="text" class="form-control col-md-2" id="inlineFormInputGroup" [(ngModel)]="searchValue" > 
+    </div>
+  </div>
+</div>
+<div class="sort">
+  <label class="sr-only" for="inlineFormInputGroup">Sort by</label>
+  <div class="input-group mb-4">
+    <div class="input-group-prepend">
+      <div class="input-group-text">sort by</div>
+    </div>
+<!-- <div class="row">
+  <h5 class="col-md-2">Sort by</h5>
+  <div class="form-group"> -->
+    <select class="form-control col-md-2" name="" id="" [(ngModel)]="fieldName" (change)="getSortedData()">
+      <option value="balance">Balance</option>
+      <option value="date">Date</option>
+      <!-- <option value="accountNo">Account Number</option> -->
+    </select>
+  </div>
+</div>
+
+
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+    
+      <th>Balance</th>
+      <th>Credit</th>
+      <th>Date</th>
+      <th>Debit</th>
+      <th>Id</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ben of data | loan:searchValue:'balance' ">
+      <!-- <td>{{i+1}}</td> -->
+<!-- <tr> -->
+      <!-- <td>{{ben.transId}}</td> -->
+      <td>{{ben.balance}}</td>
+      <td>{{ben.credit}}</td>
+      <td>{{ben.date}}</td>
+      <td>{{ben.debit}}</td>
+      <td>{{ben.id}}</td>
+      <td>{{ben.remarks}}</td>  
+        
+        
+        
+
+    </tr>
+
+  </tbody>
+</table>
+
+<mat-paginator [length]="totalItems"
+              [pageSize]="itemsPerPage"
+              [pageSizeOptions]="[2, 5, 10, 25, 100]"
+              (page) ="getNextPageItems($event)">
+</mat-paginator>

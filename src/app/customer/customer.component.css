@@ -1,0 +1,14 @@
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px ;
+    padding: 10px;
+  }
+  .required {
+    color: red;
+  }
+
+  .navbar{
+    background-color: #bcd5ec; 
+    height: 11%;
+}

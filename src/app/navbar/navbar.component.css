@@ -1,0 +1,16 @@
+.navbar{
+    background-color: #bcd5ec; 
+    height: 11%;
+}
+
+.logo-image{
+    width: 46px;
+    height: 46px;
+    
+    overflow: hidden;
+    margin-top: -6px;
+}
+
+.right{
+    float: right;
+}

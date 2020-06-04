@@ -1,0 +1,40 @@
+
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="px-3 py-3 col-md">
+
+
+</div> 
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <!-- <th>Sl No</th> -->
+      <th>Ben Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Account Number</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ben of beneficiary">
+      <!-- <td>{{i+1}}</td> -->
+<!-- <tr> -->
+      <td>{{ben.beneficiaryId}}</td>
+      <td>{{ben.firstName}}</td>
+      <td>{{ben.lastName}}</td>
+      <td>{{ben.accountNo}}</td>
+      <td>{{ben.email}}</td>
+      <td>{{ben.phoneNo}}</td>    
+        
+        <td>
+          <!-- <button type="button" class="btn btn-primary" (click)='updateBen(ben)'>Update</button> -->
+        <button type="button" class="btn btn-danger" (click)='deleteBene(ben)'>Delete</button>
+        </td>
+
+
+    </tr>
+
+  </tbody>
+</table>
